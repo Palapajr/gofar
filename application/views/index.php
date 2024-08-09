@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>Index - Bootslander Bootstrap Template</title>
+	<title>TAROIN AJA</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 
@@ -44,11 +44,11 @@
 			<a href="index.html" class="logo d-flex align-items-center">
 				<!-- Uncomment the line below if you also wish to use an image logo -->
 				<!-- <img src="<?php echo base_url(); ?>assets/img/logo.png" alt=""> -->
-				<h1 class="sitename">Bootslander</h1>
+				<h1 class="sitename">TAROIN AJA</h1>
 			</a>
 
 			<nav id="navmenu" class="navmenu">
-				<ul>
+				<!-- <ul>
 					<li><a href="#hero" class="active">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#features">Features</a></li>
@@ -73,7 +73,7 @@
 						</ul>
 					</li>
 					<li><a href="#contact">Contact</a></li>
-				</ul>
+				</ul> -->
 				<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 			</nav>
 
