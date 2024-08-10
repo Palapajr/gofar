@@ -54,6 +54,7 @@
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
+					<?php echo $this->session->flashdata('msg'); ?>
 
                     <!-- Content Row -->
                     <div class="row">
@@ -585,7 +586,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="<?php echo base_url(); ?>auth/logout">Logout</a>
                 </div>
             </div>
         </div>

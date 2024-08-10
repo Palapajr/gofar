@@ -51,74 +51,60 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="<?php echo site_url('pasien/create'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Tambah</a>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
-						<div class="card shadow mb-4 col-lg-12">
+						<div class="card shadow mb-4 col-lg-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+								<h6 class="m-0 font-weight-bold text-primary">Form </h6>
 							</div>
-						<?php echo $this->session->flashdata('msg'); ?>
-
 							<div class="card-body">
-								<div class="table-responsive">
-									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-										<thead>
-											<tr>
-												<th>no</th>
-												<th>ID</th>
-												<th>Nama Pasien</th>
-												<th>Jenis Kelamin</th>
-												<th>Tanggal Lahir</th>
-												<th>Alamat</th>
-												<th>Status</th>
-												<th>Ongkir</th>
-												<th>Aksi</th>
-											</tr>
-										</thead>
-										<?php
-											$no = 1;
-											foreach ($pasien as $p) { ?>
-										<tbody>
-											<tr>
-												<td><?= $no++; ?></td>
-												<td><?php echo $p['id']; ?></td>
-												<td><?php echo $p['nama_pasien']; ?></td>
-												<td><?php echo $p['jk']; ?></td>
-												<td><?php echo $p['tgl_lahir']; ?></td>
-												<td><?php echo $p['alamat']; ?></td>
-												<td>
-													<?php if ($p['status'] == 'diproses'): ?>
-														<span class="badge badge-primary">Diproses</span>
-													<?php elseif ($p['status'] == 'dikirim'): ?>
-														<span class="badge badge-warning">Dikirim</span>
-													<?php elseif ($p['status'] == 'diterima'): ?>
-														<span class="badge badge-success">Diterima</span>
-													<?php endif; ?>
-												</td>
-												<td>Rp. <?php echo $p['ongkir']; ?>,-</td>
-												<!-- <td>
-													<?php
-													// Cek apakah desimalnya adalah 0
-													if (fmod($p['ongkir'], 1) == 0) {
-														echo "Rp. " . number_format($p['ongkir'], 0, ',', '.') . ",-";
-													} else {
-														echo "Rp. " . number_format($p['ongkir'], 2, ',', '.') . ",-";
-													}
-													?>
-												</td> -->
-												<td>
-													<a href="<?php echo site_url('pasien/edit/'.$p['id']); ?>">Edit</a>
-													<a href="<?php echo site_url('pasien/delete/'.$p['id']); ?>">Hapus</a>
-												</td>
-											</tr>
-										</tbody>
-										<?php } ?>
-									</table>
+								
+							<form action="<?php echo site_url('pasien/update/'.$pasien['id']); ?>" method="post">
+								<div class="form-group">
+									<label for="">Nama</label>
+									<input type="text" name="nama_pasien" class="form-control" value="<?php echo $pasien['nama_pasien']; ?>" placeholder="Nama">
 								</div>
+								<div class="form-group">
+									<label for="">Jenis Kelamin</label>
+									<select class="form-control" name="jk">
+										<option>Pilih</option>
+										<option value="L" <?php echo $pasien['jk'] == 'L' ? 'selected' : ''; ?>>Laki-Laki</option>
+										<option value="P" <?php echo $pasien['jk'] == 'P' ? 'selected' : ''; ?>>Perempuan</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="">Tanggal Lahir</label>
+									<input type="date" name="tgl_lahir" class="form-control" value="<?php echo $pasien['tgl_lahir']; ?>">
+								</div>
+								<div class="form-group">
+									<label for="">Alamat</label>
+									<textarea name="alamat" class="form-control"><?php echo $pasien['alamat']; ?></textarea>
+								</div>
+
+								<div class="form-group">
+									<label for="">Status</label>
+									<select class="form-control" name="status">
+										<option value="diproses" <?php echo $pasien['status'] == 'diproses' ? 'selected' : ''; ?>>Diproses</option>
+										<option value="dikirim" <?php echo $pasien['status'] == 'dikirim' ? 'selected' : ''; ?>>Dikirim</option>
+										<option value="diterima" <?php echo $pasien['status'] == 'diterima' ? 'selected' : ''; ?>>Diterima</option>
+									</select>
+								</div>
+								
+
+								<div class="form-group">
+									<label for="">Ongkir</label>
+									<input type="number" name="ongkir" class="form-control" value="<?php echo $pasien['ongkir']; ?>">
+								</div>
+								
+								<button class="btn btn-primary btn-user btn-block" type="submit">
+									Simpan Data
+								</button>
+								<hr>
+								
+							</form>
+
 							</div>
 						</div>                
                     </div>
@@ -160,7 +146,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?php echo base_url(); ?>auth/logout">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>

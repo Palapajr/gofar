@@ -29,11 +29,10 @@ class Pasien extends CI_Controller
             'jk' => $this->input->post('jk'),
             'tgl_lahir' => $this->input->post('tgl_lahir'),
             'alamat' => $this->input->post('alamat'),
-            'status' => 'diproses',
-            'ongkir' => $this->input->post('ongkir') ?: null,
         );
 
         $this->Pasien_model->insert_pasien($data);
+		$this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"><strong> Data Berhasil di Tambahkan</strong></div>');
         redirect('pasien');
     }
 
@@ -53,11 +52,13 @@ class Pasien extends CI_Controller
         );
 
         $this->Pasien_model->update_pasien($id, $data);
+		$this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"><strong> Data Berhasil di Update</strong></div>');
         redirect('pasien');
     }
 
     public function delete($id) {
         $this->Pasien_model->delete_pasien($id);
+		$this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"><strong> Data Berhasil di Hapus</strong></div>');
         redirect('pasien');
     }
 }

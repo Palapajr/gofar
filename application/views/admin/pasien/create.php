@@ -51,46 +51,45 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
-						<div class="card shadow mb-4 col-lg-12">
+						<div class="card shadow mb-4 col-lg-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+								<h6 class="m-0 font-weight-bold text-primary">Form </h6>
 							</div>
 							<div class="card-body">
 								
-							<form class="user">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
-                                    </form>
+							<form action="<?php echo site_url('pasien/store'); ?>" method="post">
+								<div class="form-group">
+									<label for="">Nama</label>
+									<input type="text" name="nama_pasien" class="form-control" placeholder="Nama">
+								</div>
+								<div class="form-group">
+									<label for="">Jenis Kelamin</label>
+									<select class="form-control" name="jk">
+										<option>Pilih</option>
+										<option value="L">Laki-Laki</option>
+										<option value="P">Perempuan</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="">Tanggal Lahir</label>
+									<input type="date" name="tgl_lahir" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="">Alamat</label>
+									<textarea name="alamat" class="form-control"></textarea>
+								</div>
+								
+								
+								<button class="btn btn-primary btn-user btn-block" type="submit">
+									Simpan Data
+								</button>
+								<hr>
+								
+							</form>
 
 							</div>
 						</div>                
